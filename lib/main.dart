@@ -3,10 +3,12 @@ import 'package:flutter_getx/src/home.dart';
 import 'package:get/get.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -15,7 +17,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Home(),
+      initialRoute: "/",
+      getPages: [
+        GetPage(name: "/", page: () => const Home()),
+      ],
     );
   }
 }

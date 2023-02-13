@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx/src/pages/normal/first.dart';
+import 'package:flutter_getx/src/pages/reactive_state_manage_page.dart';
 import 'package:get/get.dart';
 
 class Home extends StatelessWidget {
@@ -9,7 +9,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("라우트 관리 홈"),
+        title: const Text("라우트 관리 홈"),
       ),
       body: Center(
         child: Column(
@@ -17,10 +17,10 @@ class Home extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed: () {
-                  Get.to(() => const FirstPage());
+                  Get.to(const ReactiveStateManagePage());
                 },
-                child: Text("일반적인 라우트"),
-            )
+                child: const Text("반응형 상태 관리"),
+            ),
           ]
         )
       )
