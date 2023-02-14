@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx/src/pages/reactive_state_manage_page.dart';
+import 'package:flutter_getx/src/pages/getx_service_page.dart';
 import 'package:get/get.dart';
+
+import 'controller/getx_service_test.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -17,9 +19,15 @@ class Home extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed: () {
-                  Get.to(const ReactiveStateManagePage());
+                  Get.to(
+                      () => const GetxServiceWidget(),
+                    binding: BindingsBuilder(() {
+                      Get.lazyPut<GetxServiceTest>(() => GetxServiceTest());
+                      fenix: true;
+                    }),
+                  );
                 },
-                child: const Text("반응형 상태 관리"),
+                child: const Text("GetxService"),
             ),
           ]
         )
